@@ -13,8 +13,8 @@ RUN apt-get -y update \
 
 ARG keystone_version
 
-RUN git clone -b "$keystone_version" https://github.com/openstack/keystone.git
-RUN git clone -b "$keystone_version" https://github.com/openstack/requirements
+RUN git clone -b stable/newton https://github.com/openstack/keystone.git
+RUN git clone -b stable/newton https://github.com/openstack/requirements
 
 RUN useradd --user-group keystone \
     && pip install -e /keystone -c /requirements/upper-constraints.txt
